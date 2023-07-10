@@ -21,14 +21,20 @@ app.get("/", function(req, res) {
     }
     var day = today.toLocaleDateString("en-US", options);
 
-    res.render("list", {kindOfDay: day, newListItems: items});
+    res.render("list", {listTitle: day, newListItems: items});
 });
 
 app.post("/", function(req, res) {
     item = req.body.newItem;
     items.push(item);
     res.redirect("/");
+});
+
+
+app.get("/work", function(req, res) {
+    res.render()
 })
+
 
 app.listen(process.env.PORT || 3000, function() {
     console.log("server started on port 3000");
